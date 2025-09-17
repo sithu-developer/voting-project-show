@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Major {
+  id            Int     @id @default(autoincrement())
+  majorsOrAdmin String  @unique
+  maxQuantity   Int
+  passCode      String  @unique
+  isTimeUp      Boolean @default(false)
+  User          User[]
+  Admin         Admin[]
+}
+
+model Admin {
+  id           Int    @id @default(autoincrement())
+  email        String @unique()
+  adminMajorId Int
+  Majar        Major  @relation(fields: [adminMajorId], references: [id])
+}
+
+model User {
+  id          Int     @id @default(autoincrement())
+  name        String
+  email       String  @unique()
+  majorId     Int
+  isSubmitted Boolean @default(false)
+  Major       Major   @relation(fields: [majorId], references: [id])
+  Votes       Votes[]
+}
+
+model Categories {
+  id            Int        @id @default(autoincrement())
+  name          String
+  iconUrl       String
+  isShownResult Boolean    @default(false)
+  Student       Students[]
+}
+
+model Students {
+  id               Int        @id @default(autoincrement())
+  contestantNumber Int
+  url              String
+  name             String
+  year             Int
+  major            String
+  zodiacId         Int
+  categoryId       Int
+  Categories       Categories @relation(fields: [categoryId], references: [id])
+  Votes            Votes[]
+}
+
+model Votes {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  studentId Int
+  User      User     @relation(fields: [userId], references: [id])
+  Students  Students @relation(fields: [studentId], references: [id])
+}
+
+model Agenda {
+  id        Int    @id @default(autoincrement())
+  agendaUrl String
+}

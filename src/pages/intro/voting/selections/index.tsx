@@ -117,28 +117,27 @@ const KingSelectionPage = () => {
     }
 
     return (
-        <Box sx={{ position : "relative" , width : "100vw" , height : "100vh" , bgcolor : numberForBackground ?  "#031020" : "#091D7D" , overflow : "hidden" , display : "flex" , flexDirection : "column" , alignItems : "center"  }}  >
-            {numberForBackground ? <Image alt="selectionBackground" src={"/selectionBackground.jpg"} width={1000} height={1000} style={{ width : "auto" , height : "100vh"  , opacity : "60%" }} />
-            :<Image alt="selectionBackgroundTwo" src={"/selectionBackgroundTwo.jpg"} width={1000} height={1000} style={{ height : "calc(100vh - 34px)" , width : "120vw" , opacity : "50%" }} />}
+        <Box sx={{ position : "relative" , width : "100vw" , height : "100vh" , overflow : "hidden" , display : "flex" , flexDirection : "column" , alignItems : "center"  }}  >
+            <Image alt="selectionBackground" src={"/tmp.jpg"} width={1000} height={1000} style={{ width : "auto" , height : "100vh" , opacity : "75%" }} />
             <Box sx={{ position : "absolute" , top : "73px" , width : "100%" , display : "flex" , flexDirection : "column" , alignItems : "center" }} >
-                {selectedCategory && <Image alt="category photo" src={selectedCategory.iconUrl} width={300} height={300} style={{ width : "18%" , height : "auto" , position : "absolute" , top : "-53px" }} />}
+                {/* {selectedCategory && <Image alt="category photo" src={selectedCategory.iconUrl} width={300} height={300} style={{ width : "18%" , height : "auto" , position : "absolute" , top : "-53px" }} />} */}
                 <Box sx={{ display : "flex" , width : "93%" , position : "relative" }}>
-                    <Box sx={{ width: "35%", height: "12px", borderTop: "1px solid #BFCDEC"}} />
-                    <Box sx={{ width: "30%", height: "12px", borderBottom : "1px solid #BFCDEC" , borderLeft : "1px solid #BFCDEC" , borderRight : "1px solid #BFCDEC" }} />
-                    <Box sx={{ width: "35%", height: "12px", borderTop: "1px solid #BFCDEC" }} />
+                    <Box sx={{ width: "35%", height: "12px", borderTop: "1px solid #023047"}} />
+                    <Box sx={{ width: "30%", height: "12px", borderBottom : "1px solid #023047" , borderLeft : "1px solid #023047" , borderRight : "1px solid #023047" }} />
+                    <Box sx={{ width: "35%", height: "12px", borderTop: "1px solid #023047" }} />
                 </Box>
-                <Typography sx={{ width : "100vw" , fontSize : "40px" , fontFamily : "Microsoft YaHei UI" , textAlign : "center" , color : "#DAE9FE" }} >{selectedCategory?.name.toUpperCase()} SELECTION</Typography>
+                <Typography sx={{ width : "100vw" , fontSize : "40px" , fontFamily : "Times New Roman" , textAlign : "center" , color : "#023047" }} >{selectedCategory?.name.toUpperCase()}</Typography>
                 <Box sx={{ display : "flex" , alignItems : "center"  , width : "93%"}}>
-                    <Box sx={{ width: "35%", borderTop: "1px solid #BFCDEC"}} />
-                    <Typography sx={{ width : "30%" , fontFamily : `"Lucida Handwriting", "Brush Script MT", cursive` , fontStyle : "italic" , fontWeight : 900 , textAlign : "center" , lineHeight : 1 , color : "#BFCDEC"}} >LET&apos;SVOTE</Typography>
-                    <Box sx={{ width: "35%", borderTop: "1px solid #BFCDEC" }} />
+                    <Box sx={{ width: "35%", borderTop: "1px solid #023047"}} />
+                    <Typography sx={{ width : "30%" , fontFamily : `"Lucida Handwriting", "Brush Script MT", cursive` , fontStyle : "italic" , fontWeight : 900 , textAlign : "center" , lineHeight : 1 , color : "#023047"}} >LET&apos;SVOTE</Typography>
+                    <Box sx={{ width: "35%", borderTop: "1px solid #023047" }} />
                 </Box>
             </Box>
             <Box sx={{ position : "absolute" , top : "185px" , borderRadius : "10px" , width : "95%" , display : "grid" , gridTemplateColumns : "repeat(auto-fill, minmax(100px, 1fr))" , gap : 1 , overflowY : "auto", maxHeight : "calc(100vh - 350px)" }}>
                 {sortedStudents.map(item => {
                 const currentZodiac = zodiacSigns.find(zodiac => zodiac.id === item.zodiacId) as ZodiacSignType;
                 return (
-                    <Box key={item.id} sx={{ border : (votedStudent?.id === item.id ?  "3px solid #FFD700" : "") , width : "115px" , height : "145px" , bgcolor : `#28316B` , borderRadius : "15px" , display : "flex" , flexDirection : "column" , justifyContent : "start" , alignItems : "center" , position : "relative" , overflow : "hidden" , cursor : "pointer" }}
+                    <Box key={item.id} sx={{ border : (votedStudent?.id === item.id ?  "3px solid #FFD700" : "") , width : "115px" , height : "145px" , bgcolor : `#023047` , borderRadius : "15px" , display : "flex" , flexDirection : "column" , justifyContent : "start" , alignItems : "center" , position : "relative" , overflow : "hidden" , cursor : "pointer" }}
                         onClick={() => setVotedStudent(item)}
                     >
                         <Image alt="candidate photo" src={item.url} width={1000} height={1000} style={{ width : "100%" , height : "auto"}} />
@@ -154,26 +153,26 @@ const KingSelectionPage = () => {
                 )})}
             </Box>
             <Box sx={{ display : "flex" , alignItems : "center" , justifyContent : "center" , gap : categoryId ? "20px" : "40px" , width : "80%" , position : "absolute" , bottom : "85px" , height : "65px"}}>
-                {(categories[0]?.id === selectedCategory?.id) && <Image alt="king button side" src={"/kingButtonSide.svg"} width={300} height={300} style={{ width : "auto" , height : "auto"}} />}
-                {(categories[1]?.id === selectedCategory?.id) && <Image alt="queen button side" src={"/queenButtonSide.svg"} width={300} height={300} style={{ width : "auto" , height : "auto"}} />}
+                {/* {(categories[0]?.id === selectedCategory?.id) && <Image alt="king button side" src={"/kingButtonSide.svg"} width={300} height={300} style={{ width : "auto" , height : "auto"}} />} */}
+                {/* {(categories[1]?.id === selectedCategory?.id) && <Image alt="queen button side" src={"/queenButtonSide.svg"} width={300} height={300} style={{ width : "auto" , height : "auto"}} />} */}
                 <Box sx={{ display : "flex" , alignItems : "center" , ml : "5px" }}>
                     {categoryId ? <IconButton onClick={() => router.push("/intro/voting/thank-for-voting") } >
-                        <ClearRoundedIcon sx={{ color : "white" , fontSize : "30px" , bgcolor : "#7485E5" , borderRadius : "10px" }} />
+                        <ClearRoundedIcon sx={{ color : "white" , fontSize : "30px" , bgcolor : "#911515ff" , borderRadius : "10px" }} />
                     </IconButton> : undefined}
                     {(alreadyVotedStudent !== votedStudent && alreadyVotedStudent !== undefined && votedStudent !== undefined) ? <Button variant="contained" sx={{ bgcolor : "#7485E5" , py : "0px" , borderRadius : "20px" , fontSize : "18px" , gap : "5px" }} 
                     onClick={handleRevoteStudent}
                     >Revote<Image alt="vote checked icon" src={"/voteChecked.svg"} width={100} height={100} style={{ width : "19px" , height : "auto" }} /></Button>
-                    :<Button disabled={!votedStudent || (alreadyVotedStudent === votedStudent)} variant="contained" sx={{ bgcolor : "#7485E5" , py : "0px" , borderRadius : "20px" , fontSize : "18px" , gap : "5px" , '&.Mui-disabled' : { color : "GrayText" , bgcolor : "rgb(28, 32, 77)"} }} 
+                    :<Button disabled={!votedStudent || (alreadyVotedStudent === votedStudent)} variant="contained" sx={{ bgcolor : "#7485E5" , py : "0px" , borderRadius : "20px" , fontSize : "18px" , gap : "5px" , '&.Mui-disabled' : { color : "whitesmoke" , bgcolor : "#15334eff"} }} 
                         onClick={handleVoteStudent}
                     > {(alreadyVotedStudent === votedStudent && votedStudent !== undefined) ? "Voted" : "Vote"} <Image alt="vote checked icon" src={"/voteChecked.svg"} width={100} height={100} style={{ width : "19px" , height : "auto"}} /></Button>}
                 </Box>
-                {(categories[0]?.id === selectedCategory?.id) && <Image alt="king button side" src={"/kingButtonSide.svg"} width={300} height={300} style={{ width : "auto" , height : "auto"}} />}
-                {(categories[1]?.id === selectedCategory?.id) && <Image alt="queen button side" src={"/queenButtonSide.svg"} width={300} height={300} style={{ width : "auto" , height : "auto"}} />}
+                {/* {(categories[0]?.id === selectedCategory?.id) && <Image alt="king button side" src={"/kingButtonSide.svg"} width={300} height={300} style={{ width : "auto" , height : "auto"}} />} */}
+                {/* {(categories[1]?.id === selectedCategory?.id) && <Image alt="queen button side" src={"/queenButtonSide.svg"} width={300} height={300} style={{ width : "auto" , height : "auto"}} />} */}
             </Box>
 
             <BottomNavigation
               value={selectedCategory ? selectedCategory.id : categories[0]?.id }
-              sx={{  position : "absolute" , bottom : "0px" , bgcolor : "info.dark" , overflowX : "auto" , width : "100%" , display : "flex" , justifyContent : "start" , height : "65px" , borderTopLeftRadius : "20px" , borderTopRightRadius : "20px"}}
+              sx={{  position : "absolute" , bottom : "0px" ,background: "rgba(0, 0, 0, 0.15)" , backdropFilter: "blur(30px)" , WebkitBackdropFilter: "blur(30px)"  , border: "1px solid rgba(0, 0, 0, 0.2)" , boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)"  , overflowX : "auto" , width : "100%" , display : "flex" , justifyContent : "start" , height : "65px" , borderTopLeftRadius : "20px" , borderTopRightRadius : "20px"}}
             >
                 {categories.map(item => (
                     <BottomNavigationAction key={item.id} onClick={() => {
@@ -193,3 +192,8 @@ const KingSelectionPage = () => {
 }
 
 export default KingSelectionPage;
+
+
+
+//{numberForBackground ? <Image alt="selectionBackground" src={"/selectionBackground.jpg"} width={1000} height={1000} style={{ width : "auto" , height : "100vh"  , opacity : "60%" }} />
+            // :<Image alt="selectionBackgroundTwo" src={"/selectionBackgroundTwo.jpg"} width={1000} height={1000} style={{ height : "calc(100vh - 34px)" , width : "120vw" , opacity : "50%" }} />}

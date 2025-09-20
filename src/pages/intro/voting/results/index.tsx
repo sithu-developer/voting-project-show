@@ -46,11 +46,12 @@ const VotingResultPage = () => {
     if(isTimeUp) { 
     return (
         <Box sx={{ position : "relative" , bgcolor : "#01005D" , height : "100vh" , display : "flex" , flexDirection : "column" , alignItems : "center"}}>
-            <Image alt="voting result background" src={"/votingResultBg.png"} width={1000} height={1000} style={{ height : "100%" , width : "100%"}}/>
+            <Image alt="voting result background" src={"/tmp.jpg"} width={1000} height={1000} style={{ height : "100%" , width : "100%"}}/>
+            {/* <Image alt="voting result background" src={"/votingResultBg2.png"} width={1000} height={1000} style={{ height : "100%" , width : "100%" , position : "absolute" , zIndex : 100}}/> */}
             <Image alt="result celebrate gold filter" src={"/resultCelebrate.gif"} width={1000} height={1000} style={{ position : "absolute" , top : "0px" , width : "100%" , height : "100%"}} />
-            <Box sx={{ position : "absolute" , top : "35px" , display : "flex" , flexDirection : "column" , alignItems : "center"}}>
-                <Image alt="voting result crown" src={"/votingResultCrown.png"} width={200} height={200} style={{ width : "80px" , height : "auto" }} />
-                <Typography variant="h4" sx={{ fontFamily : "'Times New Roman', Times, serif" , fontStyle : "italic" , textAlign : "center" , WebkitTextStroke: '1.5px #EAAA45', textStroke: '1.5px #EAAA45'}} >VOTING RESULTS</Typography>
+            <Box sx={{ position : "absolute" , zIndex : 100 , top : "45px" , display : "flex" , flexDirection : "column" , alignItems : "center"}}>
+                {/* <Image alt="voting result crown" src={"/votingResultCrown.png"} width={200} height={200} style={{ width : "80px" , height : "auto" }} /> */}
+                <Typography variant="h4" sx={{ fontFamily : "'Times New Roman', Times, serif" , fontStyle : "italic" , textAlign : "center" , color : "silver" , WebkitTextStroke: '1.5px #a91a75ff', textStroke: '1.5px #a91a75ff'}} >VOTING RESULTS</Typography>
             </Box>
             <Box sx={{ position : "absolute" , top : "155px" , height : "calc(100vh - 200px)" , width : "90%" , display : "flex" , flexDirection : "column", p : "10px" , overflowY : "auto" }}>
                 {(categories.length && students.length && votes.length) ? categories.map(item => {
@@ -64,12 +65,12 @@ const VotingResultPage = () => {
                         <Box key={item.id} sx={{ display : "flex" , flexDirection : "column" , justifyContent : "center" , alignItems : !(categories.indexOf(item) % 2 ) ? "start" : "end"  , height : "155px" , px : "14%" }} >
                             <Box>
                                 <Box sx={{ position : "relative"}} >
-                                    <Box sx={{ position: "absolute" , top : "0px" , width : "100px" , height : "130px" , borderRadius: '50%' , p : "4px" , background: 'linear-gradient(90deg, #CD9C56 5%, #DECCB3 32%, #BD8F4F 66%, #AA8146 84%, #CBDBA5 100%)' , WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }} ></Box>
+                                    <Box sx={{ position: "absolute" , top : "0px" , width : "100px" , height : "130px" , borderRadius: '50%' , p : "4px" , background: 'linear-gradient(90deg, #863267ff 5%, #daa5c7ff 32%, #863267ff 66%, #ecb0d6ff 84%, #863267ff 100%)' , WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }} ></Box>
                                     <Box sx={{ width : "100px" , height : "130px" , borderRadius: '50%' ,display : "flex" , flexDirection : "column" , justifyContent : "center" , overflow : "hidden"}} >
                                         <Image alt="winner photo" src={item.isShownResult ? winner.student.url : (!(categories.indexOf(item) % 2) ? "/secretMale.png" : "/secretFemale.png" )} width={1000} height={1000} style={{ width : "100%" , height : "auto"}} />
                                     </Box>
                                 </Box>
-                                <Typography sx={{ fontFamily : "'Times New Roman', Times, serif" , color : "#B4884B" , fontSize : "25px" , textAlign: "center" }} >{item.name.toUpperCase()}</Typography>
+                                <Typography sx={{ fontFamily : "'Times New Roman', Times, serif" ,  background : "linear-gradient(to right, #570439ff , #c02b89ff )" , backgroundClip : "text" , WebkitBackgroundClip : "text" , WebkitTextFillColor : "transparent" , fontSize : "25px" , textAlign: "center" }} >{item.name.toUpperCase()}</Typography>
                             </Box>
                         </Box>
                     )

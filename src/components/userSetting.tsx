@@ -29,7 +29,7 @@ const UserSetting = ( { setUserSettingOpen , userSettingOpen } : Props) => {
                 }
             }}
         >
-            <DialogTitle sx={{ bgcolor : "#1B1D84"}}>
+            <DialogTitle sx={{ bgcolor : "#0b83df"}}>
                 <Box sx={{  width : "105%" , display : "flex" , justifyContent : "space-between" , alignItems : "center"}}>
                     <Typography variant="h5" >Setting</Typography>
                     <IconButton onClick={() => setUserSettingOpen(false)} >
@@ -37,7 +37,7 @@ const UserSetting = ( { setUserSettingOpen , userSettingOpen } : Props) => {
                     </IconButton>
                 </Box>
             </DialogTitle>
-            <DialogContent sx={{ bgcolor : "info.main" , display : "flex" , flexDirection : "column" , gap : "15px"  , overflowX : "hidden"}} >
+            <DialogContent sx={{ bgcolor : "#085189" , display : "flex" , flexDirection : "column" , gap : "15px"  , overflowX : "hidden"}} >
                 <Box sx={{ display : "flex" , alignItems : "center" , gap : "5px" , mt : "10px"}}>
                     <Typography >Name : {user.name}</Typography>
                     <IconButton onClick={() => setUserEditUserOpen(true)}>
@@ -47,13 +47,13 @@ const UserSetting = ( { setUserSettingOpen , userSettingOpen } : Props) => {
                 <Typography>Gmail : {user.email}</Typography>
                 <Divider variant="middle" sx={{ bgcolor : "black"}} />
                 <Box sx={{ display : "flex" , justifyContent : "center"}}>
-                    <Button variant="contained" sx={{bgcolor : "#7485E5"  , color : "black" , borderRadius : "10px" , textTransform : "none" , px : "21px" }} onClick={() => {
+                    <Button variant="contained" sx={{bgcolor : "#1eb7e6"  , color : "black" , borderRadius : "10px" , textTransform : "none" , px : "21px" }} onClick={() => {
                         setAgendaOpen(true);
                     }}>Agenda</Button>
                 </Box>
                 <Divider variant="middle" sx={{ bgcolor : "black"}} />
                 <Box sx={{ display : "flex" , justifyContent : "center"}}>
-                    <Button variant="contained" sx={{bgcolor : "#7485E5" , color : "black"  , borderRadius : "10px" , textTransform : "none"}} onClick={() => {
+                    <Button variant="contained" sx={{bgcolor : "#1eb7e6" , color : "black"  , borderRadius : "10px" , textTransform : "none"}} onClick={() => {
                         localStorage.clear();
                         signOut({callbackUrl : "/intro/sign-up"})
                     }} >Sign Out</Button>

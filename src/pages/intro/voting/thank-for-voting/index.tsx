@@ -59,9 +59,11 @@ const ThankForVoting = () => {
         <Box sx={{ position : "relative" , bgcolor : "" , height : "100vh" , overflow : "hidden"}} >
             <Image alt="thank for voting Bg" src={"/tmp.jpg"} height={1000} width={1000} style={{ width : "auto" , height : "100%" , opacity : "50%"}} />
             <Box sx={{ width : "200px", position : "absolute" , left : "20px" , top : "35px"}}  >
-                <Typography variant="h4" sx={{ textAlign : "center" , fontFamily : "'Times New Roman', Times, serif" , fontSize : "45px"}} >RESULT</Typography>
-                <Typography variant="h4" sx={{ textAlign : "center" , fontFamily : "'Times New Roman', Times, serif"}}>WILL BE</Typography>
-                <Typography variant="h4" sx={{ textAlign : "center" , fontFamily : "'Times New Roman', Times, serif"}}>ANNOUNCED SOON</Typography>
+                <Box  sx={{  fontFamily : "fantasy" , background : "linear-gradient(125deg, #0657efff , rgb(12, 95, 120), rgb(45, 45, 45), rgb(47, 15, 161))" , backgroundClip : "text" , WebkitBackgroundClip : "text" , WebkitTextFillColor : "transparent"}}>
+                    <Typography variant="h4" sx={{fontWeight : "bold" , textAlign : "center" , fontFamily : "'Times New Roman', Times, serif" , fontSize : "42px"}} >RESULT</Typography>
+                    <Typography variant="h4" sx={{fontWeight : "bold" , textAlign : "center" , fontFamily : "'Times New Roman', Times, serif"}}>WILL BE</Typography>
+                    <Typography variant="h4" sx={{fontWeight : "bold" , textAlign : "center" , fontFamily : "'Times New Roman', Times, serif"}}>ANNOUNCED SOON</Typography>
+                </Box>
                 {/* <Typography  sx={{ textAlign : "center" , fontFamily : "'Times New Roman', Times, serif"}} >Results will be announced soon</Typography> */}
             </Box>
             <Box sx={{ position : "absolute" , top : "255px" , borderRadius : "10px" , width : "95%" , display : "flex" , flexWrap : "wrap" , gap : "15px" , ml : "10px" , height : "calc(100vh - 420px)" , overflowY : "auto" , py : "10px" }}>

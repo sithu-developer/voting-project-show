@@ -48,7 +48,7 @@ const VotingSetting = () => {
     return (
         <Box sx={{ position : "absolute" , top : "17px" , right : "11px" , color : "white"}} >
             <IconButton onClick={() => setUserSettingOpen(true)} >
-                <SettingsRoundedIcon sx={{ fontSize : "35px" , color : "white"}} />
+                <SettingsRoundedIcon sx={{ fontSize : "35px" , color : "#0b83df"}} />
             </IconButton>
             <UserSetting userSettingOpen={userSettingOpen} setUserSettingOpen={setUserSettingOpen} />
         </Box>

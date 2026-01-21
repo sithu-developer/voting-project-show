@@ -18,7 +18,7 @@ const SignUpPage = () => {
         <Box sx={{ position : "relative" , width : "100vw" , height : "100vh" , bgcolor : "secondary.main" , overflow : "hidden" , display : "flex" , justifyContent : "center" , alignItems : "center"  }} >
             <Image alt="signUpBg" src={"/tmp.jpg"} width={1000} height={1000} style={{ width : "auto" , height : "100vh" , opacity : "60%" }} />
             <Box sx={{ position : "absolute" , mb : "40px" , display : "flex" , flexDirection : "column" , gap : "13px" , mt : "calc(100vh - 950px)" , alignItems : "center"  }} >
-                <Typography variant="h3"  sx={{ mb : "30px" , fontFamily : "fantasy" , background : "linear-gradient(to right, #0657efff , #34e90bff, #000000ff, #a91953ff)" , backgroundClip : "text" , WebkitBackgroundClip : "text" , WebkitTextFillColor : "transparent"}} >Vote for Election</Typography>
+                <Typography variant="h3"  sx={{ mb : "30px" , fontFamily : "fantasy" , background : "linear-gradient(to right, #0657efff , rgb(11, 181, 233), #000000ff, rgb(47, 15, 161))" , backgroundClip : "text" , WebkitBackgroundClip : "text" , WebkitTextFillColor : "transparent"}} >Vote for Election</Typography>
                 <Image alt="Icon" src={"/electionIcon.png"} width={300} height={300} style={{ width : "120px" , height : "auto" , marginBottom : "40px" }} />
                 <TextField
                   onChange={(event) => setMajorCode(event.target.value)}

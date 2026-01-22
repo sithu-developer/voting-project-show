@@ -8,11 +8,14 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { signIn } from "next-auth/react";
 import AdminPasswordDialog from "@/components/AdminPasswordDialog";
 import { AdminPasswordItemsType } from "@/types/admin";
+import { useAppDispatch } from "@/store/hooks";
+import { changeIsLoading } from "@/store/slices/snackBarSlice";
 
 const SignUpPage = () => {
     const [ showPassword , setShowPassword ] = useState<boolean>(false);
     const [ adminPasswordItems , setAdminPasswordItems ] = useState<AdminPasswordItemsType>({open : false , password : ""});    
     const [ majorCode , setMajorCode ] = useState<string>("")
+    const dispatch = useAppDispatch();
 
     return (
         <Box sx={{ position : "relative" , width : "100vw" , height : "100vh" , bgcolor : "secondary.main" , overflow : "hidden" , display : "flex" , justifyContent : "center" , alignItems : "center"  }} >
@@ -52,6 +55,7 @@ const SignUpPage = () => {
                 />
                 <Button variant="contained" disabled={!majorCode} onClick={() => {
                     localStorage.setItem("majorCode" , majorCode);
+                    dispatch(changeIsLoading(true));
                     signIn("google" , { callbackUrl : "/intro/voting/selections"});
                 }}  sx={{ border : "1px solid white" , borderRadius : "23px" , py : "10px" , px : "25px" , textTransform : "none" , boxShadow : '0px 6px 4px rgba(0, 0, 0, 0.2)' }} >
                     <Image alt="gmail icon" src={"/gmail.svg"} width={35} height={35} />

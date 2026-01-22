@@ -85,7 +85,7 @@ const KingQueenPage = () => {
                     :<Box sx={{ flexGrow : 1 , display : "flex" , justifyContent : "space-between" , alignItems : "center"}}>
                         {selectedCategory && <Box sx={{ display : "flex" , alignItems : "center" , gap : "5px" ,  ml : "20px"}} >
                             <Image alt="category icon" src={selectedCategory.iconUrl} width={100} height={100} style={{ width : "35px" , height : "35px"}} />
-                            <Typography variant="h5" >{selectedCategory.name}</Typography>
+                            <Typography variant="h6" >{selectedCategory.name}</Typography>
                         </Box>}
                         <IconButton onClick={() => setSearchOpen(true)} >
                             <SearchRoundedIcon sx={{ color : "black"}} />

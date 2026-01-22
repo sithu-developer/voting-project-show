@@ -5,6 +5,8 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VpnKeyRoundedIcon from '@mui/icons-material/VpnKeyRounded';
 import { AdminPasswordItemsType } from "@/types/admin";
 import { signIn } from "next-auth/react";
+import { useAppDispatch } from "@/store/hooks";
+import { changeIsLoading } from "@/store/slices/snackBarSlice";
 
 interface Props {
     adminPasswordItems : AdminPasswordItemsType,
@@ -13,6 +15,7 @@ interface Props {
 
 const AdminPasswordDialog = ({ adminPasswordItems , setAdminPasswordItems } : Props) => {
     const [ showPassword , setShowPassword ] = useState<boolean>(false);
+    const dispatch = useAppDispatch();
 
     return (
         <Dialog open={adminPasswordItems.open} onClose={() => {
@@ -59,7 +62,8 @@ const AdminPasswordDialog = ({ adminPasswordItems , setAdminPasswordItems } : Pr
                     }} >Cancel</Button>
                     <Button disabled={!adminPasswordItems.password} variant="contained" sx={{ textTransform : "none"}} onClick={() => {
                         localStorage.setItem("adminPassword" , adminPasswordItems.password );
-                        signIn("google" , { callbackUrl : "/intro/backoffice/king-queen"})
+                        dispatch(changeIsLoading(true))
+                        signIn("google" , { callbackUrl : "/intro/backoffice/king-queen"});
                     }} >Gmail</Button>
                 </Box>
             </DialogContent>
